@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoDanhBa.Views.AddContactPage"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:local="clr-namespace:DemoDanhBa.Models.CutstomeRenderer" 
+                 xmlns:local1="clr-namespace:DemoDanhBa.ViewModel">
+
+   
+    
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation  PositionIn="Center"
+                                   PositionOut="Center"
+                                   DurationIn="500"
+                                   DurationOut="600"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True">
+        </animations:MoveAnimation>
+    </pages:PopupPage.Animation>
+    
+
+    <Frame HorizontalOptions="Center"
+           VerticalOptions="Center"
+           CornerRadius="4">
+    <StackLayout Spacing="20">
+          
+       
+            <StackLayout Margin="0" Padding="0"  >
+           
+             <Label Text="Thêm người liên hệ" TextColor="DodgerBlue" HorizontalOptions="StartAndExpand"  />
+             <BoxView BackgroundColor="DarkGray" HeightRequest="1" Margin="0,10,0,0" />
+
+            </StackLayout>
+           
+            
+            
+
+
+            <StackLayout>
+            <Frame WidthRequest="250" BorderColor="#dbdad7" Padding="15,0,0,0" Margin="0,0,0,15" CornerRadius="3">
+
+                    <local:MyCustomerEntry x:Name="UserName" Placeholder="Nhập người liên hệ" FontSize="15"  />
+            </Frame>
+
+            <Frame WidthRequest="250" BorderColor="#dbdad7" Padding="15,0,0,0" CornerRadius="3">
+                    <local:MyCustomerEntry x:Name="PhoneNumber" Placeholder="Nhập số điện thoại" FontSize="15"  />
+            </Frame>
+
+           
+        </StackLayout>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" HeightRequest="35" >
+            <Button Text="Hủy Bỏ" TextColor="White" BackgroundColor="#f56262" FontSize="12" Clicked="Huy_Clicked"/>
+            <Button Text="Thêm" TextColor="White" BackgroundColor="#62baf5" FontSize="12" Clicked="Them_Clicked"/>
+        </StackLayout>
+           
+    </StackLayout>
+    </Frame>
+
+</pages:PopupPage>

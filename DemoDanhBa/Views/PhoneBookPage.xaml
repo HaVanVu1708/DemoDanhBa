@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:local="clr-namespace:DemoDanhBa.ViewModel" xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
+             x:Class="DemoDanhBa.Views.PhoneBookPage"
+             
+             Title="DS NGUỜI LIÊN HỆ">
+
+    <!--<ContentPage.BindingContext>
+        <local:AddContactListViewModel/>
+    </ContentPage.BindingContext>-->
+    
+    <NavigationPage.TitleView>
+        <StackLayout Margin="0" Padding="0,0,20,0">
+
+            <Label Text="THÊM" 
+            HorizontalOptions="EndAndExpand"
+            TextColor="DodgerBlue"
+            FontSize="15"
+             >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Add"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+
+
+        <ListView ItemsSource="{Binding Persons}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout   Orientation="Vertical" BackgroundColor="White" Margin="4">
+                            <StackLayout Orientation="Horizontal" >
+                            <!--<forms:CachedImage HeightRequest="50"
+                                               WidthRequest="50"                                            
+                                               Aspect="AspectFill"                   
+                                               Source="icon_avatarcontact.png"
+                                              />-->
+
+                               <sfavatar:SfAvatarView 
+                               ContentType="Initials"
+                               InitialsType="DoubleCharacter"
+                               AvatarName="{Binding Name}"
+                               InitialsColor="White"                     
+                               WidthRequest="50"
+                               FontAttributes="Bold"                     
+                               HeightRequest="50"
+                               CornerRadius="25"                        
+                               BackgroundColor="DodgerBlue"
+                                Margin="10">
+                                </sfavatar:SfAvatarView>
+                                
+                                <StackLayout VerticalOptions="Center" >
+                                    <Label Text="{Binding Name }"
+                                   FontAttributes="Bold"/>
+
+                                    <Label Text="{Binding  PersonPhone}"
+                                   TextColor="#46fa91"
+                                    />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Padding="10" Spacing="15">
+                                    <forms:CachedImage HeightRequest="20"
+                                               WidthRequest="20"
+                                               VerticalOptions="Center"
+                                               Aspect="AspectFill"
+                                               Source="icon_edit.png"
+                                               
+                                               >
+                                        <forms:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                               Tapped="TapGestureRecognizer_Tapped_Edit" 
+                                               
+                                                CommandParameter="{Binding PersonId}"/>
+                                        </forms:CachedImage.GestureRecognizers>
+                                        
+                                    </forms:CachedImage>
+                                    <Image HeightRequest="20"
+                                               WidthRequest="20"
+                                               VerticalOptions="Center"
+                                               Aspect="AspectFill"
+                                               Source="icon_delete.png"
+                                               
+                                               >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Delete"
+                                                                 />
+                                            
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+
+                            
+                            
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
